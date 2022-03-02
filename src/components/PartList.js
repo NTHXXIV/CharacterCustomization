@@ -16,7 +16,7 @@ export const PartList = ({ total, path, set, selected }) => {
         <img
           src={`character/${path}/${i + 1}.png`}
           alt=""
-          className="absolute transform"
+          className="absolute"
         />
       </div>
     );
