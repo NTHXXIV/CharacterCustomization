@@ -5,22 +5,24 @@ import { PartList } from "./components/PartList";
 const total = {
   body: 17,
   eyes: 17,
-  hair: 73,
+  hair: 74,
   mouth: 24,
   eyebrows: 15,
+  facialHair: 18,
   glasses: 17,
-  hats: 28,
-  neckwear: 18,
-  earrings: 32,
+  hats: 29,
+  neckwear: 19,
+  earrings: 33,
   clothing1: 5,
-  clothing2: 5,
-  clothing3: 9,
+  clothing2: 6,
+  clothing3: 10,
 };
 function App() {
   const [body, setBody] = useState(0);
   const [eyes, setEyes] = useState(2);
   const [eyebrows, setEyebrow] = useState(2);
   const [hair, setHair] = useState(0);
+  const [facialHair, setFacialHair] = useState(1);
   const [clothing1, setClothing1] = useState(0);
   const [clothing2, setClothing2] = useState(0);
   const [clothing3, setClothing3] = useState(0);
@@ -34,6 +36,7 @@ function App() {
     setEyes(Math.floor(Math.random() * total.eyes));
     setEyebrow(Math.floor(Math.random() * total.eyebrows));
     setHair(Math.floor(Math.random() * total.hair));
+    setFacialHair(Math.floor(Math.random() * total.facialHair));
     setMouth(Math.floor(Math.random() * total.mouth));
     setMouth(Math.floor(Math.random() * total.mouth));
     setEarrings(Math.floor(Math.random() * total.earrings));
@@ -66,6 +69,7 @@ function App() {
             body={body}
             eyes={eyes}
             hair={hair}
+            facialHair={facialHair}
             clothing1={clothing1}
             clothing2={clothing2}
             clothing3={clothing3}
@@ -88,7 +92,7 @@ function App() {
 
         <div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Body</h2>
+            <h2 className="text-white p-2 text-2xl">Body</h2>
             <PartList
               total={total.body}
               path="body"
@@ -97,7 +101,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Eyes</h2>
+            <h2 className="text-white p-2 text-2xl">Eyes</h2>
             <PartList
               total={total.eyes}
               path="eyes"
@@ -106,7 +110,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Hair</h2>
+            <h2 className="text-white p-2 text-2xl">Hair</h2>
             <PartList
               total={total.hair}
               path="hair"
@@ -115,7 +119,16 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Mouth</h2>
+            <h2 className="text-white p-2 text-2xl">Facial Hair</h2>
+            <PartList
+              total={total.facialHair}
+              path="facial_hair"
+              set={setFacialHair}
+              selected={facialHair}
+            />
+          </div>
+          <div className="max-w-2xl text-center">
+            <h2 className="text-white p-2 text-2xl">Mouth</h2>
             <PartList
               total={total.mouth}
               path="mouths"
@@ -124,7 +137,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Eyebrows</h2>
+            <h2 className="text-white p-2 text-2xl">Eyebrows</h2>
             <PartList
               total={total.eyebrows}
               path="eyebrows"
@@ -133,7 +146,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Glasses</h2>
+            <h2 className="text-white p-2 text-2xl">Glasses</h2>
             <PartList
               total={total.glasses}
               path="accessories/glasses"
@@ -142,7 +155,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Earrings</h2>
+            <h2 className="text-white p-2 text-2xl">Earrings</h2>
             <PartList
               total={total.earrings}
               path="accessories/earrings"
@@ -151,7 +164,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Hats</h2>
+            <h2 className="text-white p-2 text-2xl">Hats</h2>
             <PartList
               total={total.hats}
               path="accessories/hats"
@@ -160,7 +173,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Neckwear</h2>
+            <h2 className="text-white p-2 text-2xl">Neckwear</h2>
             <PartList
               total={total.neckwear}
               path="accessories/neckwear"
@@ -169,7 +182,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Clothing (L1)</h2>
+            <h2 className="text-white p-2 text-2xl">Clothing (L1)</h2>
             <PartList
               total={total.clothing1}
               path="clothes/layer_1"
@@ -178,7 +191,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Clothing (L2)</h2>
+            <h2 className="text-white p-2 text-2xl">Clothing (L2)</h2>
             <PartList
               total={total.clothing2}
               path="clothes/layer_2"
@@ -187,7 +200,7 @@ function App() {
             />
           </div>
           <div className="max-w-2xl text-center">
-            <h2 className="text-white p-2 text-xl">Clothing (L3)</h2>
+            <h2 className="text-white p-2 text-2xl">Clothing (L3)</h2>
             <PartList
               total={total.clothing3}
               path="clothes/layer_3"
